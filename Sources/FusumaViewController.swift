@@ -72,7 +72,7 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
     @IBOutlet var cameraFirstConstraints: [NSLayoutConstraint]!
     
     var albumView  = FSAlbumView.instance()
-    var cameraView = FSCameraView.instance()
+    public var cameraView = FSCameraView.instance()
     
     public weak var delegate: FusumaDelegate? = nil
     
