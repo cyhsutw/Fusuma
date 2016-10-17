@@ -32,18 +32,18 @@ class ViewController: UIViewController, FusumaDelegate {
         fusuma.delegate = self
 //        fusuma.defaultMode = .Camera
 //        fusuma.modeOrder = .CameraFirst
-        self.presentViewController(fusuma, animated: true, completion: nil)
+        self.present(fusuma, animated: true, completion: nil)
         
     }
     
     // MARK: FusumaDelegate Protocol
-    func fusumaImageSelected(image: UIImage) {
+    func fusumaImageSelected(_ image: UIImage) {
         
         print("Image selected")
         imageView.image = image
     }
     
-    func fusumaDismissedWithImage(image: UIImage) {
+    func fusumaDismissedWithImage(_ image: UIImage) {
         
         print("Called just after dismissed FusumaViewController")
     }
@@ -52,21 +52,21 @@ class ViewController: UIViewController, FusumaDelegate {
         
         print("Camera roll unauthorized")
         
-        let alert = UIAlertController(title: "Access Requested", message: "Saving image needs to access your photo album", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Access Requested", message: "Saving image needs to access your photo album", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Settings", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) -> Void in
             
             if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                UIApplication.sharedApplication().openURL(url)
+                UIApplication.shared.openURL(url as URL)
             }
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
             
         }))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func fusumaClosed() {
