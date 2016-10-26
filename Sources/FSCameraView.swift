@@ -164,13 +164,7 @@ public final class FSCameraView: UIView, UIGestureRecognizerDelegate {
                     let resizedImage = UIImage(cgImage: imageRef!, scale: sw/iw, orientation: image.imageOrientation)
                                         
                     DispatchQueue.main.async(execute: { () -> Void in
-                        
                         delegate.cameraShotFinished(resizedImage)
-                        
-                        self.session     = nil
-                        self.device      = nil
-                        self.imageOutput = nil
-                        
                     })
                 }
                 
