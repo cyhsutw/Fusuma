@@ -175,21 +175,12 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
         UIGraphicsEndImageContext()
         
         delegate?.fusumaImageSelected(image!)
-        
-        self.dismiss(animated: true, completion: {
-            
-            self.delegate?.fusumaDismissedWithImage?(image!)
-        })
     }
     
     // MARK: FSCameraViewDelegate
     func cameraShotFinished(_ image: UIImage) {
         
         delegate?.fusumaImageSelected(image)
-        self.dismiss(animated: true, completion: {
-        
-            self.delegate?.fusumaDismissedWithImage?(image)
-        })
     }
     
     // MARK: FSAlbumViewDelegate
