@@ -22,7 +22,7 @@ public final class FSCameraView: UIView, UIGestureRecognizerDelegate {
     
     weak var delegate: FSCameraViewDelegate? = nil
     
-    public var session: AVCaptureSession?
+    var session: AVCaptureSession?
     var device: AVCaptureDevice?
     var videoInput: AVCaptureDeviceInput?
     var imageOutput: AVCaptureStillImageOutput?
@@ -251,6 +251,10 @@ public final class FSCameraView: UIView, UIGestureRecognizerDelegate {
             return
         }
  
+    }
+    
+    public func restart() {
+        session?.startRunning()
     }
 }
 
