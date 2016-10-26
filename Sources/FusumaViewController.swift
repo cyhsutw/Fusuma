@@ -63,7 +63,6 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var libraryButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
@@ -110,8 +109,6 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
         cameraButton.setImage(cameraImage, for: .highlighted)
         cameraButton.setImage(cameraImage, for: .selected)
         
-        closeButton.tintColor = UIColor.white
-        
         libraryButton.tintColor = fusumaTintColor
         cameraButton.tintColor  = fusumaTintColor
         
@@ -155,15 +152,7 @@ public final class FusumaViewController: UIViewController, FSCameraViewDelegate,
         
         return true
     }
-    
-    @IBAction func closeButtonPressed(_ sender: UIButton) {
-
-        self.dismiss(animated: true, completion: {
-            
-            self.delegate?.fusumaClosed?()
-        })
-    }
-    
+        
     @IBAction func libraryButtonPressed(_ sender: UIButton) {
         
         changeMode(FusumaMode.library)
